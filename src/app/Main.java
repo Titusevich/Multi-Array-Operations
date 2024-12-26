@@ -41,5 +41,30 @@ public class Main {
                 "in even columns (column №0,2) is " + result1);
         System.out.println("Result of multiplying elements " +
                 "in odd columns (column №1,№3) is " + result2);
+
+        int sumDiagonal1 = 0;
+        int sumDiagonal2 = 0;
+        int sumRows = 0;
+        int sumColumns = 0;
+        boolean isMagic = true;
+
+        for (int i = 0; i < matrix.length; i++) {
+            sumDiagonal1 += matrix[i][i];
+            sumDiagonal2 += matrix[i][matrix.length - 1 - i];
+            if (sumDiagonal1 != sumDiagonal2) {
+                isMagic = false;
+            }
+            for (int j = 0; j < matrix.length; j++) {
+                sumRows += matrix[i][j];
+                sumColumns += matrix[j][i];
+            }
+            if (sumRows != sumColumns || sumRows != sumDiagonal1) {
+                isMagic = false;
+            }
+        }
+        if (isMagic) {
+            System.out.println("\nThis matrix is a magic square.");
+        } else
+            System.out.println("\nThis matrix isn't a magic square.");
     }
 }
