@@ -9,5 +9,12 @@ public class Main {
                 {8, 14, 15, 5},
                 {3, 12, 4, 2}
         };
+        System.out.println("\nMatrix " + matrix.length + "x" + matrix.length + ":");
+        for (int[] array : matrix) {
+            for (int value : array) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
     }
 }
